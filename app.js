@@ -3,15 +3,19 @@ let userSeq=[];
 let level=0;
 let started=false;
 let h2=document.querySelector('h2');
-
-let btns=["yellow","red","purple","green"];
-document.addEventListener('keypress',()=>{
+function startGame(){
     if(started==false){
         console.log("game started");
         started=true;
         levelUp();
     }
-});
+}
+let btns=["yellow","red","purple","green"];
+function addStartListener(){
+    document.addEventListener('keypress',startGame)
+    document.addEventListener('touchstart', startGame);
+}
+addStartListener();
 function btnFlash(btn){
     btn.classList.add("flash");
     setTimeout(()=>{
